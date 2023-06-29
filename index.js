@@ -19,7 +19,7 @@ app.use(cors({
 app.use('/api/users', routes)
 app.use('/api', memes)
 
-app.listen(4000, () => {
+app.listen(process.env.PORT, () => {
     ConnectDb();
     console.log('Server is running...');
 })
