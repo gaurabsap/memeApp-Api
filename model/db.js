@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 
 const ConnectDb = async() => {
     try {
-        const connect = await mongoose.connect('mongodb://127.0.0.1:27017/Appgb')
+        const connect = await mongoose.connect(process.env.MONGO_URL)
         if(connect){
             console.log('Connect with database')
         }else{
