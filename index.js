@@ -14,7 +14,7 @@ app.use(express.json({limit: '200mb'}));
 app.use(express.urlencoded({limit: '200mb', extended: false}));
 app.use(cors({
     credentials: true,
-    origin: true
+    origin: process.env.FRONTEND_URL
 }))
 app.use('/api/users', routes)
 app.use('/api', memes)
