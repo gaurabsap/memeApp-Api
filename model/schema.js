@@ -24,7 +24,7 @@ const schema = new mongoose.Schema({
         url: {
             type: String,
             required: [true, "Please provide url"],
-            default: "https://res.cloudinary.com/ddcmktx4l/image/upload/v1685251791/UserImages/profile_d63bzi.gif"
+            default: "https://res.cloudinary.com/ddcmktx4l/image/upload/v1685264118/UserProfile/hnwrzzcm9qygowqhm8nf.jpg"
         },
         public_id: {
             type: String,
