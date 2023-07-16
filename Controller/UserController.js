@@ -173,7 +173,6 @@ const UserData = async (resq, resp) => {
       message: "Id is not valid",
     });
   } else {
-    // console.log(search)
     return resp.status(200).json({
       sucess: true,
       data: search,
@@ -187,34 +186,6 @@ const UserUpdate = async (req, res) => {
     const { email, username } = req.body.inputdata;
     const id = req.id;
     const search = await userModel.findById(id);
-
-    // if(email != undefined){
-    //   if(search.email === email){
-    //     return null
-    //   }else{
-    //     const check = await userModel.find({email})
-    //     if(check){
-    //       return res.status(200).json({
-    //       sucess: false,
-    //       message: "Email already exist"
-    //     })
-    //     }
-    //   }
-    // }
-
-    // if(username != undefined){
-    //   if(search.username === username){
-    //     return null
-    //   }else{
-    //     const checks = await userModel.find({username})
-    //     if(checks){
-    //       return res.status(200).json({
-    //       sucess: false,
-    //       message: "username already exist"
-    //     })
-    //     }
-    //   }
-    // }
 
     if (image != undefined) {
       if (search.photo.public_id === "abc") {
@@ -324,8 +295,6 @@ const UserUpdate = async (req, res) => {
           });
         }
       }
-
-      // console.log(update)
     }
   } catch (error) {
     console.log(error.message);
@@ -464,7 +433,6 @@ const ResetPassword = async (resq, resp) => {
           $gt: Date.now(),
         },
       });
-      // console.log(find.userid)
       if (find) {
         const newpass = await haspass.hash(password);
         // console.log(newpass)
@@ -472,7 +440,6 @@ const ResetPassword = async (resq, resp) => {
           { _id: find.userid },
           { password: newpass }
         );
-        // console.log(update)
         if (update) {
           const dels = await tokenModel.deleteOne({ token: hashtoken });
           if (dels) {
