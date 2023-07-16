@@ -46,7 +46,6 @@ const UserRegister = async (resq, resp) => {
   } else {
     try {
       const newpass = await haspass.hash(password);
-      // console.log(newpass)
       const regs = await userModel.create({
         username,
         email,
